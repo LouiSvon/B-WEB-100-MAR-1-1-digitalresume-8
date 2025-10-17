@@ -1,0 +1,193 @@
+/* ==============================
+   VARIABLES
+============================== */
+:root {
+  --color-bg: #000000;
+  --color-primary: #FFA500;
+  --color-secondary: #E0E0E0;
+  --color-accent: #00FFFF;
+  --grid-line: rgba(255, 255, 255, 0.08);
+}
+
+/* ==============================
+   STRUCTURE GLOBALE
+============================== */
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 12px;
+  padding: 0;
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main, header, footer, section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==============================
+   TYPOGRAPHIE
+============================== */
+h1, h2 {
+  color: var(--color-primary);
+}
+
+h3, p {
+  color: var(--color-secondary);
+}
+
+ul {
+  color: var(--color-accent);
+}
+
+/* ==============================
+   LIENS
+============================== */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* ==============================
+   HEADER & NAVIGATION
+============================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==============================
+   EXPERIENCE & SKILLS CÔTE À CÔTE
+============================== */
+.row {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2em 0;
+}
+
+.experience, .skills {
+  flex: 1 1 45%;
+  box-sizing: border-box;
+}
+
+/* Responsive mobile */
+@media (max-width: 700px) {
+  .experience, .skills {
+    flex: 1 1 100%;
+  }
+}
+
+/* ==============================
+   FORMULAIRES
+============================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 600px;
+  margin: 0 auto 2em auto;
+  padding: 1em;
+}
+
+form label {
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 0.3em;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.7em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-secondary);
+  font-size: 1em;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+form button {
+  background-color: var(--color-primary);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+form button:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.03);
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+  margin: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  border-top: 1px solid var(--grid-line);
+  color: var(--color-secondary);
+  font-size: 0.9em;
+}
+
+footer a {
+  margin-left: 1em;
+  color: var(--color-accent);
+  transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+  opacity: 0.7;
+}
