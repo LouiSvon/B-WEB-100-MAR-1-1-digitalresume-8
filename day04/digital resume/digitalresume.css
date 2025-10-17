@@ -1,162 +1,102 @@
-/* ===============================
-   POLICES
-=============================== */
-.goldman-regular {
-  font-family: "Goldman", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.goldman-bold {
-  font-family: "Goldman", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* ===============================
-   BASE STYLE
-=============================== */
+/* base */
 body {
-  margin: 0;
+  margin: 0; /* enlever marges par défaut */
   font-family: "Goldman", sans-serif; /* police principale */
-  background: #0b0b0b;
-  color: #e0e0e0;
-  line-height: 1.6;
+  background: #0b0b0b; /* fond sombre */
+  color: #e0e0e0; /* texte clair */
+  line-height: 1.6; /* espacement lignes */
 }
 
+/* header + nav */
 header {
   background: #111;
   color: #fff;
   padding: 1em 2em;
-  display: flex;
+  display: flex; /* flex pour aligner titre + menu */
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* passe en colonne si petit écran */
 }
 
-header h1 {
-  font-size: 1.5em;
-}
+header h1 { font-size: 1.5em; }
 
 nav ul {
-  list-style: none;
+  list-style: none; /* enlever puces */
   display: flex;
-  gap: 1.5em;
+  gap: 1.5em; /* espace entre liens */
   margin: 0;
   padding: 0;
+  flex-wrap: wrap; /* plusieurs lignes si manque de place */
 }
 
 nav a {
   text-decoration: none;
   color: #fff;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* hover smooth */
 }
 
-nav a:hover {
-  color: #FF4D02;
-}
+nav a:hover { color: #FF4D02; } /* accent couleur hover */
 
-/* ===============================
-   HOME SECTION
-=============================== */
-.home {
-  text-align: center;
-  padding: 5em 2em;
-}
-
-.home h1 {
-  font-size: 2.5em;
-  color: #FF4D02;
-}
-
-.home h2 {
-  font-weight: 400;
-}
-
-.home h3 {
-  color: #bbb;
-}
-
-/* ===============================
-   CARD SECTIONS
-=============================== */
-.card {
-  position: relative;
-  flex: 1 1 45%;
-  min-height: 250px;
+/* sections pleine page */
+.full-page {
+  min-height: 100vh; /* prend toute la hauteur écran */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #1a1a1a;
-  border-radius: 20px;
-  color: #fff;
-  padding: 1.5em;
+  justify-content: center; /* centré horizontal */
+  align-items: center; /* centré vertical */
+  padding: 40px 20px; /* espace interne */
   box-sizing: border-box;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  background: #0b0b0b;
 }
 
+/* cartes */
+.card {
+  background: #1a1a1a;
+  border-radius: 20px; /* coins arrondis */
+  padding: 3em 2em;
+  max-width: 900px; /* largeur max */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* nécessaire pour le ::before */
+  overflow: hidden; /* cache gradient qui déborde */
+  text-align: center;
+  transition: transform 0.3s ease; /* effet hover scale */
+}
+
+/* bordure animée gradient autour de la carte */
 .card::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
   border-radius: 20px;
-  padding: 3px;
-  background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  padding: 3px; /* épaisseur “bordure” gradient */
+  background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%); /* gradient dynamique */
   mask:
     linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+    linear-gradient(#fff 0 0); /* masque intérieur */
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
+          mask-composite: exclude; /* exclure centre pour laisser fond */
+  opacity: 0; /* caché par défaut */
+  transition: opacity 0.4s ease; /* apparition progressive */
+  z-index: 0; /* derrière contenu */
 }
 
-.card:hover::before {
-  opacity: 1;
+/* hover effet carte */
+.card:hover::before { opacity: 1; } /* affiche gradient */
+.card:hover { transform: scale(1.02); } /* légère mise en avant */
+.card * { position: relative; z-index: 1; } /* texte au-dessus du gradient */
+
+.card h2 { color: #FF4D02; margin-bottom: 0.5em; }
+.card p, .card ul { 
+  color: #e0e0e0; 
+  font-size: 0.95em; 
+  line-height: 1.5em; 
+  padding-left: 1em; /* si liste à puces */ 
 }
 
-.card:hover {
-  transform: scale(1.02);
-}
-
-.card * {
-  position: relative;
-  z-index: 1;
-}
-
-.card h2 {
-  color: #FF4D02;
-  margin-bottom: 0.5em;
-}
-
-.card p, .card ul {
-  color: #e0e0e0;
-  font-size: 0.95em;
-  line-height: 1.5em;
-  padding-left: 1em;
-}
-
-/* ===============================
-   ROW (EXPERIENCE + EDUCATION)
-=============================== */
-.row {
-  display: flex;
-  gap: 2em;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 3em auto;
-  max-width: 1000px;
-}
-
-/* ===============================
-   CONTACT FORM
-=============================== */
+/* formulaire contact */
 .contact {
   max-width: 600px;
   margin: 4em auto;
@@ -165,14 +105,11 @@ nav a:hover {
   border-radius: 15px;
 }
 
-.contact label {
-  display: block;
-  margin-top: 1em;
-}
+.contact label { display: block; margin-top: 1em; }
 
 .contact input,
 .contact textarea {
-  width: 100%;
+  width: 100%; /* prend toute la largeur du container */
   padding: 0.8em;
   border: none;
   border-radius: 8px;
@@ -190,54 +127,51 @@ nav a:hover {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.5s;
+  transition: background 0.5s; /* effet smooth hover */
 }
 
-.contact button:hover {
-  background: #FF4D02;
-}
+.contact button:hover { background: #FF4D02; }
 
-/* ===============================
-   FOOTER
-=============================== */
-footer {
-  text-align: center;
-  padding: 2em;
-  background: #111;
-  color: #FF4D02;
-}
+/* page d'accueil */
+.home h1 { font-size: 2.5em; color: #FF4D02; }
+.home h2 { font-weight: 400; }
+.home h3 { color: #bbb; }
 
-/* ===============================
-   RESPONSIVE
-=============================== */
+/* pied de page */
+footer { text-align: center; padding: 2em; background: #111; color: #FF4D02; }
+
+/* responsive */
+
+/* tablettes / petits écrans */
 @media (max-width: 1024px) {
-  .row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    flex: 1 1 90%;
-  }
+  header { flex-direction: column; align-items: flex-start; } /* empile titre + nav */
+  nav ul { flex-direction: column; gap: 1em; width: 100%; }
+  .card { width: 90%; padding: 2em; }
+  .home h1 { font-size: 2.2em; }
+  .home h2 { font-size: 1.5em; }
+  .home h3 { font-size: 1.2em; }
 }
 
+/* smartphones */
+@media (max-width: 768px) {
+  header h1 { font-size: 1.3em; margin-bottom: 0.5em; }
+  .card { padding: 1.5em; }
+  .home h1 { font-size: 1.8em; }
+  .home h2 { font-size: 1.2em; }
+  .home h3 { font-size: 1em; }
+  .full-page { padding: 20px 10px; }
+}
+
+/* très petit écran / portrait */
 @media (max-width: 480px) {
-  .home h1 {
-    font-size: 2em;
-  }
-
-  .home h2 {
-    font-size: 1.2em;
-  }
-
-  .home h3 {
-    font-size: 1em;
-  }
+  nav ul { gap: 0.5em; }
+  .contact { padding: 1.5em; margin: 2em auto; }
+  .home h1 { font-size: 1.5em; }
+  .home h2 { font-size: 1em; }
+  .home h3 { font-size: 0.9em; }
 }
 
-/* ===============================
-   CURSEUR SMOOTH SURPOUSSE
-=============================== */
+/* curseur perso */
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -246,7 +180,8 @@ footer {
   height: 20px;
   border-radius: 50%;
   background: #FF4D02;
-  pointer-events: none; /* ne bloque pas les clics */
-  transform: translate(-50%, -50%);
+  pointer-events: none; /* ignore les clics */
+  transform: translate(-50%, -50%); /* centré sur souris */
   z-index: 9999;
+  /* déplacement géré par JS */
 }
