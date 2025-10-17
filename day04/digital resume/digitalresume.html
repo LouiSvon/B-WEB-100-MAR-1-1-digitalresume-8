@@ -2,15 +2,15 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Resume - Louis Savon</title>
-  <link rel="stylesheet" href="digitalresume.css"> <!-- lien CSS principal -->
+  <link rel="stylesheet" href="digitalresume.css">
 </head>
 <body>
     
   <!-- header avec nav principal -->
   <header class="header">
-    <h1>Louis Savon</h1>
+    <h1>L.S</h1>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -26,74 +26,77 @@
   <main>
     <!-- HOME SECTION -->
     <section id="home" class="home full-page">
-      <h1>HEY, I'M LOUIS SAVON</h1> <!-- titre principal -->
-      <h2>Future Computer Engineer</h2> <!-- sous-titre -->
-      <h3>Passionate about the possibilities offered by computing.</h3> <!-- description courte -->
+      <h1>HEY, I'M LOUIS SAVON</h1>
+      <h2>Future Computer Engineer</h2>
+      <h3>Passionate about the possibilities offered by computing.</h3>
     </section>
 
-    <!-- ABOUT ME -->
-    <section id="about" class="full-page">
-      <div class="card"> <!-- carte avec bordure animée -->
-        <h2>About Me</h2>
-        <p>Originally from France, I discovered my passion for technology at a very early age, becoming interested in cryptocurrencies between 2015 and 2017. Curious and adventurous, I have travelled from Vietnam to Dublin via Réunion, and lived for a year in Briançon and a month in Dublin. These experiences have allowed me to develop my independence, adaptability and open-mindedness. Today, I put my creativity and tech expertise to work on ambitious and innovative projects.</p>
-      </div>
-    </section>
+    <!-- CONTAINER CARDS -->
+    <div class="cards-container">
+      <!-- ABOUT ME -->
+      <section id="about">
+        <div class="card">
+          <h2>About Me</h2>
+          <p>Originally from France, I discovered my passion for technology at a very early age, becoming interested in cryptocurrencies between 2015 and 2017. Curious and adventurous, I have travelled from Vietnam to Dublin via Réunion, and lived for a year in Briançon and a month in Dublin. These experiences have allowed me to develop my independence, adaptability and open-mindedness. Today, I put my creativity and tech expertise to work on ambitious and innovative projects.</p>
+        </div>
+      </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="full-page">
-      <div class="card"> <!-- carte compétences -->
-        <h2>Skills</h2>
-        <ul>
-          <li><strong>Python:</strong> programming and task automation, scripts and personal projects</li>
-          <li><strong>HTML & CSS:</strong> creation of responsive websites, combining functionality and aesthetics</li>
-          <li><strong>Git:</strong> version control and effective team collaboration</li>
-          <li><strong>English (B2):</strong> fluent professional communication</li>
-        </ul>
-      </div>
-    </section>
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="card">
+          <h2>Skills</h2>
+          <ul>
+            <li><strong>Python:</strong> programming and task automation, scripts and personal projects</li>
+            <li><strong>HTML & CSS:</strong> creation of responsive websites, combining functionality and aesthetics</li>
+            <li><strong>Git:</strong> version control and effective team collaboration</li>
+            <li><strong>English (B2):</strong> fluent professional communication</li>
+          </ul>
+        </div>
+      </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="full-page">
-      <div class="card">
-        <h2>Experience</h2>
-        <ul>
-          <li><strong>Business developer & crypto projects:</strong> participation in numerous crypto projects, generating €3 million in revenue over 5 years</li>
-          <li><strong>Team management and organisation:</strong> supervision and coordination of 40-50 people</li>
-          <li><strong>International exposure:</strong> lived and worked in various international contexts</li>
-        </ul>
-      </div>
-    </section>
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="card">
+          <h2>Experience</h2>
+          <ul>
+            <li><strong>Business developer & crypto projects:</strong> participation in numerous crypto projects, generating €3 million in revenue over 5 years</li>
+            <li><strong>Team management and organisation:</strong> supervision and coordination of 40-50 people</li>
+            <li><strong>International exposure:</strong> lived and worked in various international contexts</li>
+          </ul>
+        </div>
+      </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="full-page">
-      <div class="card">
-        <h2>Education</h2>
-        <ul>
-          <li><strong>Bachelor en Informatique:</strong> programming, software development, responsive websites</li>
-          <li><strong>Bac Pro Commerce:</strong> sales, client relations, business management</li>
-        </ul>
-      </div>
-    </section>
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="card">
+          <h2>Education</h2>
+          <ul>
+            <li><strong>Bachelor en Informatique:</strong> programming, software development, responsive websites</li>
+            <li><strong>Bac Pro Commerce:</strong> sales, client relations, business management</li>
+          </ul>
+        </div>
+      </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="full-page">
-      <div class="card contact"> <!-- carte spécifique contact -->
-        <h2>Contact</h2>
-        <p>Feel free to contact me by submitting the form below and I will get back to you as soon as possible.</p>
-        <form action="/ma-page-de-traitement" method="post">
-          <label for="name">Nom :</label>
-          <input type="text" id="name" name="user_name" placeholder="Votre nom" required>
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="card contact">
+          <h2>Contact</h2>
+          <p>Feel free to contact me by submitting the form below and I will get back to you as soon as possible.</p>
+          <form action="/ma-page-de-traitement" method="post">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="user_name" placeholder="Votre nom" required>
 
-          <label for="email">E-mail :</label>
-          <input type="email" id="email" name="user_email" placeholder="Votre email" required>
+            <label for="email">E-mail :</label>
+            <input type="email" id="email" name="user_email" placeholder="Votre email" required>
 
-          <label for="message">Message :</label>
-          <textarea id="message" name="user_message" placeholder="Votre message" rows="5" required></textarea>
+            <label for="message">Message :</label>
+            <textarea id="message" name="user_message" placeholder="Votre message" rows="5" required></textarea>
 
-          <button type="submit">Envoyer</button> <!-- bouton submit -->
-        </form>
-      </div>
-    </section>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </div> <!-- fin .cards-container -->
   </main>
 
   <!-- footer -->
@@ -105,14 +108,14 @@
   <script>
 document.addEventListener('DOMContentLoaded', () => {
   const cursor = document.createElement('div');
-  cursor.id = 'custom-cursor'; // div curseur personnalisé
+  cursor.id = 'custom-cursor';
   document.body.appendChild(cursor);
 
   let mouseX = 0;
   let mouseY = 0;
   let posX = 0;
   let posY = 0;
-  const speed = 0.12; // vitesse suivi curseur
+  const speed = 0.12;
 
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX;
@@ -120,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function animate() {
-    // interpolation pour un mouvement smooth
     posX += (mouseX - posX) * speed;
     posY += (mouseY - posY) * speed;
     cursor.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
