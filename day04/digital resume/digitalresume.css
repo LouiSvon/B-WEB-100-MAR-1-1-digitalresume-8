@@ -1,168 +1,252 @@
-/* ==============================
-   VARIABLES
-============================== */
-:root {
-  --color-bg: #000000;
-  --color-primary: #FFA500;
-  --color-secondary: #E0E0E0;
-  --color-accent: #00FFFF;
-  --grid-line: rgba(255, 255, 255, 0.08);
+/* ===============================
+   POLICES
+=============================== */
+.goldman-regular {
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-/* ==============================
-   STRUCTURE GLOBALE
-============================== */
+.goldman-bold {
+  font-family: "Goldman", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ===============================
+   BASE STYLE
+=============================== */
 body {
-  position: relative;
-  min-height: 100vh;
-  margin: 12px;
-  padding: 0;
-  background-color: var(--color-bg);
-  overflow-x: hidden;
-  text-align: center;
-  font-family: sans-serif;
+  margin: 0;
+  font-family: "Goldman", sans-serif; /* police principale */
+  background: #0b0b0b;
+  color: #e0e0e0;
+  line-height: 1.6;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+header {
+  background: #111;
+  color: #fff;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #FF4D02;
+}
+
+/* ===============================
+   HOME SECTION
+=============================== */
+.home {
+  text-align: center;
+  padding: 5em 2em;
+}
+
+.home h1 {
+  font-size: 2.5em;
+  color: #FF4D02;
+}
+
+.home h2 {
+  font-weight: 400;
+}
+
+.home h3 {
+  color: #bbb;
+}
+
+/* ===============================
+   CARD SECTIONS
+=============================== */
+.card {
+  position: relative;
+  flex: 1 1 45%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #1a1a1a;
+  border-radius: 20px;
+  color: #fff;
+  padding: 1.5em;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 3px;
+  background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
   z-index: 0;
 }
 
-main, header, footer, section {
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card * {
   position: relative;
   z-index: 1;
 }
 
-/* ==============================
-   TYPOGRAPHIE
-============================== */
-h1, h2 {
-  color: var(--color-primary);
+.card h2 {
+  color: #FF4D02;
+  margin-bottom: 0.5em;
 }
 
-h3, p {
-  color: var(--color-secondary);
+.card p, .card ul {
+  color: #e0e0e0;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  padding-left: 1em;
 }
 
-ul {
-  color: var(--color-accent);
-}
-
-/* ==============================
-   LIENS
-============================== */
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: var(--color-accent);
-}
-
-/* ==============================
-   HEADER & NAVIGATION
-============================== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 2em;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.8em;
-}
-
-nav ul {
-  display: flex;
-  gap: 1.5em;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* ==============================
-   EXPERIENCE & SKILLS CÔTE À CÔTE
-============================== */
+/* ===============================
+   ROW (EXPERIENCE + EDUCATION)
+=============================== */
 .row {
   display: flex;
   gap: 2em;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 2em 0;
+  justify-content: center;
+  margin: 3em auto;
+  max-width: 1000px;
 }
 
-.experience, .skills {
-  flex: 1 1 45%;
-  box-sizing: border-box;
+/* ===============================
+   CONTACT FORM
+=============================== */
+.contact {
+  max-width: 600px;
+  margin: 4em auto;
+  padding: 2em;
+  background: #111;
+  border-radius: 15px;
 }
 
-/* Responsive mobile */
-@media (max-width: 700px) {
-  .experience, .skills {
-    flex: 1 1 100%;
+.contact label {
+  display: block;
+  margin-top: 1em;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 0.8em;
+  border: none;
+  border-radius: 8px;
+  margin-top: 0.5em;
+  background: #222;
+  color: #fff;
+}
+
+.contact button {
+  margin-top: 1em;
+  padding: 0.8em 1.5em;
+  background: #FF4D02;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.5s;
+}
+
+.contact button:hover {
+  background: #FF4D02;
+}
+
+/* ===============================
+   FOOTER
+=============================== */
+footer {
+  text-align: center;
+  padding: 2em;
+  background: #111;
+  color: #FF4D02;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 1024px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex: 1 1 90%;
   }
 }
 
-/* ==============================
-   FORMULAIRES
-============================== */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  max-width: 600px;
-  margin: 0 auto 2em auto;
-  padding: 1em;
+@media (max-width: 480px) {
+  .home h1 {
+    font-size: 2em;
+  }
+
+  .home h2 {
+    font-size: 1.2em;
+  }
+
+  .home h3 {
+    font-size: 1em;
+  }
 }
 
-form label {
-  font-weight: bold;
-  color: var(--color-primary);
-  margin-bottom: 0.3em;
+/* ===============================
+   CURSEUR SMOOTH SURPOUSSE
+=============================== */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FF4D02;
+  pointer-events: none; /* ne bloque pas les clics */
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }
-
-form input,
-form textarea {
-  width: 100%;
-  padding: 0.7em;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--color-secondary);
-  font-size: 1em;
-  outline: none;
-  transition: border 0.3s, box-shadow 0.3s;
-}
-
-form input:focus,
-form textarea:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 5px var(--color-accent);
-}
-
-form button {
-  background-color: var(--color-primary);
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 0.8em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-
-form button:hover {
-  background-color: var(--color-accent);
-  transform: scale(1.03);
-  box-shadow: 0 0 10p

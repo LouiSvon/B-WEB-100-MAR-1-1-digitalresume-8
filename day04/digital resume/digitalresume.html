@@ -6,8 +6,8 @@
   <title>Digital Resume - Louis Savon</title>
   <link rel="stylesheet" href="digitalresume.css">
 </head>
-
 <body>
+    
   <header class="header">
     <h1>Louis Savon</h1>
     <nav>
@@ -27,29 +27,37 @@
       <h3>Passionate about the possibilities offered by computing.</h3>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="about card">
       <h2>About Me</h2>
       <p>Originally from France, I discovered my passion for technology at a very early age, becoming interested in cryptocurrencies between 2015 and 2017. Curious and adventurous, I have travelled from Vietnam to Dublin via Réunion, and lived for a year in Briançon and a month in Dublin. These experiences have allowed me to develop my independence, adaptability and open-mindedness. Today, I put my creativity and tech expertise to work on ambitious and innovative projects.</p>
     </section>
+    
+    <section id="Skills" class="Skills card">
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Python:</strong> programming and task automation, scripts and personal projects</li>
+        <li><strong>HTML & CSS:</strong> creation of responsive websites, combining functionality and aesthetics</li>
+        <li><strong>Git:</strong> version control and effective team collaboration</li>
+        <li><strong>English (B2):</strong> fluent professional communication</li>
+      </ul>
+    </section>
 
     <div class="row">
-      <section id="experience" class="experience">
+      <section id="experience" class="experience card">
         <h2>Experience</h2>
-        <p>
-          <strong>Business developer & crypto projects:</strong> participation in numerous crypto projects, generating €3 million in revenue over 5 years.<br>
-          <strong>Team management and organisation:</strong> supervision and coordination of 40 to 50 people to ensure project success.<br>
-          <strong>International exposure:</strong> lived and worked in various international contexts, developing intercultural communication skills and adaptability.
-        </p>
+        <ul>
+          <li><strong>Business developer & crypto projects:</strong> participation in numerous crypto projects, generating €3 million in revenue over 5 years</li>
+          <li><strong>Team management and organisation:</strong> supervision and coordination of 40-50 people</li>
+          <li><strong>International exposure:</strong> lived and worked in various international contexts</li>
+        </ul>
       </section>
 
-      <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <p>
-          <strong>Python:</strong> programming and task automation, development of scripts and personal projects.<br>
-          <strong>HTML & CSS:</strong> creation of responsive websites, combining functionality and aesthetics.<br>
-          <strong>Git:</strong> version control and effective team collaboration.<br>
-          <strong>English (B2):</strong> fluent professional communication, both spoken and written.
-        </p>
+      <section id="Education" class="Education card">
+        <h2>Education</h2>
+        <ul>
+          <li><strong>Bachelor en Informatique:</strong> programming, software development, responsive websites</li>
+          <li><strong>Bac Pro Commerce:</strong> sales, client relations, business management</li>
+        </ul>
       </section>
     </div>
     
@@ -72,9 +80,37 @@
   </main>
 
   <footer>
-    <div class="footer-left">
-      <p>© 2025 Louis Savon — No AI was harmed during the creation of this CV.</p>
-    </div>
+    <p>© 2025 Louis Savon — No AI was harmed during the creation of this CV.</p>
   </footer>
+
+  <!-- JS curseur smooth -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.createElement('div');
+  cursor.id = 'custom-cursor';
+  document.body.appendChild(cursor);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let posX = 0;
+  let posY = 0;
+  const speed = 0.12; // ajuste la fluidité
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    posX += (mouseX - posX) * speed;
+    posY += (mouseY - posY) * speed;
+    cursor.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+</script>
+
 </body>
 </html>
