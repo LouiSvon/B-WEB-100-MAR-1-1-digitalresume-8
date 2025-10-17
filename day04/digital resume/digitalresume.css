@@ -1,132 +1,127 @@
-/* base */
+/*BASE : body et police */
 body {
-  margin: 0; /* enlever marges par défaut */
+  margin: 0;                      /* supprime marges par défaut */
   font-family: "Goldman", sans-serif; /* police principale */
-  background: #0b0b0b; /* fond sombre */
-  color: #e0e0e0; /* texte clair */
-  line-height: 5; /* espacement lignes */
+  background: #0b0b0b;            /* fond sombre */
+  color: #e0e0e0;                 /* texte clair */
+  line-height: 2;                 /* hauteur ligne globale */
 }
 
-/* header + nav */
+/*HEADER + NAVIGATION */
 header {
-  background: #111;
+  background: #111;               /* fond du header */
   color: #fff;
-  padding: 1em 2em;
-  display: flex; /* flex pour aligner titre + menu */
-  justify-content: space-between;
+  padding: 1em 2em;               /* espace interne */
+  display: flex;                  /* layout flex */
+  justify-content: space-between; /* espace entre logo et nav */
   align-items: center;
-  flex-wrap: wrap; /* passe en colonne si petit écran */
+  flex-wrap: wrap;                /* passe en colonne si petit écran */
 }
 
-header h1 { font-size: 1.5em; }
-
-main {
-  margin: 30px;
-  text-align:center;
+header h1 {
+  font-size: 1.5em;               /* taille du logo */
 }
 
 nav ul {
-  list-style: none; /* enlever puces */
+  list-style: none;               /* supprime puces */
   display: flex;
-  gap: 2em; /* espace entre liens */
+  gap: 2em;                       /* espace entre liens */
   margin: 0;
   padding: 0;
-  flex-wrap: wrap; /* plusieurs lignes si manque de place */
+  flex-wrap: wrap;                /* wrap sur petits écrans */
 }
 
 nav a {
   text-decoration: none;
   color: #fff;
-  transition: color 0.3s ease; /* hover smooth */
+  transition: color 0.3s ease;   /* effet hover doux */
 }
 
-nav a:hover { color: #FF4D02; } /* accent couleur hover */
+nav a:hover {
+  color: #FF4D02;                /* couleur hover */
+}
 
-/* sections pleine page */
-/* full-page sections */
+/* SECTIONS PLEINE PAGE */
 .full-page {
-  min-height: 100vh; /* prend toute la hauteur de l'écran */
+  min-height: 100vh;              /* prend toute la hauteur de l'écran */
   display: flex;
-  flex-direction: column; /* empile verticalement les enfants */
-  justify-content: center; /* centre verticalement */
-  align-items: center; /* centre horizontalement */
-  padding: 40px 20px; /* padding interne */
+  flex-direction: column;         /* empile verticalement */
+  justify-content: center;        /* centre verticalement */
+  align-items: center;            /* centre horizontalement */
+  padding: 40px 20px;             /* padding interne */
   box-sizing: border-box;
   background: #0b0b0b;
 }
 
-/* section home : phrases proches les unes des autres */
-.home h1,
-.home h2,
-.home h3 {
-  margin: 0;            /* supprime marges par défaut */
+/* HOME TEXT : titres */
+.home h1, .home h2, .home h3 {
+  margin: 0;                     /* supprime marges par défaut */
   padding: 0;
-  text-align: center;
+  text-align: center;            /* centre texte */
 }
 
-.home h1 { 
-  margin-bottom: 0.2em; 
-  font-size: 2.5em; 
-  line-height: 1.2;
-  color: #FF4D02;
-}
+.home h1 { margin-bottom: 0.2em; font-size: 2.5em; line-height: 1.2; color: #FF4D02; }
+.home h2 { margin-bottom: 0.2em; font-size: 1.5em; line-height: 1.2; font-weight: 400; color: #fff; }
+.home h3 { margin-bottom: 0; font-size: 1.2em; line-height: 1.3; color: #bbb; }
 
-.home h2 { 
-  margin-bottom: 0.2em; 
-  font-size: 1.5em; 
-  line-height: 1.2;
-  font-weight: 400;
-  color: #fff;
-}
-
-.home h3 { 
-  margin-bottom: 0; 
-  font-size: 1.2em; 
-  line-height: 1.3;
-  color: #bbb;
-}
-
-/* CARDS CONTAINER */
+/*CARDS CONTAINER */
 .cards-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;        /* empile cartes verticalement */
   align-items: center;
-  gap: 150px; /* espace entre cartes */
+  gap: 150px;                     /* espace entre cartes */
   padding: 40px 20px;
   box-sizing: border-box;
 }
 
-.cards-container section {
-  min-height: auto; /* hauteur automatique pour les cartes */
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-/* cartes */
+/* CARDS */
 .card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: visible;
   background: #1a1a1a;
-  border-radius: 20px; /* coins arrondis */
+  border-radius: 20px;
   padding: 3em 2em;
-  max-width: 900px; /* largeur max */
+  max-width: 900px;
   width: 100%;
   box-sizing: border-box;
-  position: relative; /* nécessaire pour le ::before */
-  overflow: hidden; /* cache gradient qui déborde */
-  text-align:justify;
-  transition: transform 0.3s ease; /* effet hover scale */
-  margin-bottom: 1em;
-  line-height: 10;
+  position: relative;
+  text-align: justify;
+  transition: transform 0.3s ease;
 }
 
-/* bordure animée gradient autour de la carte */
+/* Texte et éléments au-dessus du gradient */
+.card * { position: relative; z-index: 1; }
+
+/* Titres cartes */
+.card h2 { color: #FF4D02; margin-bottom: 0.5em; }
+
+/* Paragraphes et listes : texte plus grand + marges */
+.card p, .card ul {
+  color: #e0e0e0;
+  font-size: 1.1em;          /* texte légèrement plus grand */
+  line-height: 1.9em;        /* espacement entre lignes */
+  padding-left: 1em;         /* pour listes */
+  margin-bottom: 1em;        /* espace entre paragraphes/listes */
+}
+
+/* Texte et image */
+.card-text { flex: 1; margin-right: 2em; }
+.card-image img { width: 250px; height: auto; border-radius: 15px; object-fit: cover; }
+
+/* Alternance gauche/droite */
+.card-left { flex-direction: row-reverse; }
+.card-left .card-text { margin-right: 0; margin-left: 2em; }
+
+/* Hover gradient autour des cartes */
 .card::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 20px;
-  padding: 3px; /* épaisseur “bordure” gradient */
-  background: linear-gradient(163deg, #FF4D02 0%, #3700ff 100%); /* gradient dynamique */
+  padding: 3px;
+  background: linear-gradient(163deg, #FF4D02 0%, #3700ff 100%);
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -134,101 +129,76 @@ nav a:hover { color: #FF4D02; } /* accent couleur hover */
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude; /* exclure centre pour laisser fond */
-  opacity: 0; /* caché par défaut */
-  transition: opacity 0.4s ease; /* apparition progressive */
-  z-index: 0; /* derrière contenu */
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
 }
 
-/* hover effet carte */
-.card:hover::before { opacity: 1; } /* affiche gradient */
-.card:hover { transform: scale(1.02); } /* légère mise en avant */
-.card * { position: relative; z-index: 1; } /* texte au-dessus du gradient */
+.card:hover::before { opacity: 1; }
+.card:hover { transform: scale(1.02); }
 
-.card h2 { color: #FF4D02; margin-bottom: 0.5em; }
-.card p, .card ul { 
-  color: #e0e0e0; 
-  font-size: 0.95em; 
-  line-height: 1.5em; 
-  padding-left: 1em; /* si liste à puces */ 
-}
-
-/* formulaire contact */
-.contact {
+/* CONTACT FORMULAIRE */
+.contact-card {
+  display: block !important;  /* empêche le flex des cartes */
   max-width: 600px;
   margin: 4em auto;
   padding: 2em;
   background: #111;
   border-radius: 15px;
-  line-height: 2;
-  text-align:left;
+  text-align: left;
 }
 
-.contact label { display: block; margin-top: 1em;}
+.contact h2 { color: #FF4D02; margin-bottom: 0.5em; }
+.contact p { color: #ccc; margin-bottom: 1.5em; }
 
-.contact input,
-.contact textarea {
-  width: 100%; /* prend toute la largeur du container */
+/* Formulaire empilé verticalement */
+.contact form { display: block; }
+.contact label {
+  display: block;
+  margin-bottom: 0.3em;
+  font-weight: 500;
+}
+.contact input, .contact textarea {
+  width: 100%;
   padding: 0.8em;
+  margin-bottom: 1em;
   border: none;
   border-radius: 8px;
-  margin-top: 0.5em;
   background: #222;
   color: #fff;
+  font-size: 0.95em;
+  box-sizing: border-box;
 }
-
+.contact input:focus, .contact textarea:focus {
+  background: #333;
+  outline: none;
+  box-shadow: 0 0 5px #FF4D02;
+}
 .contact button {
-  margin-top: 1em;
-  padding: 0.8em 1.5em;
+  width: 100%;
+  padding: 0.8em;
   background: #FF4D02;
   color: #fff;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
   font-weight: bold;
-  transition: background 0.5s; /* effet smooth hover */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.contact button:hover {
+  background: #e24300;
+  transform: scale(1.02);
 }
 
-.contact button:hover { background: #FF4D02; }
-
-/* pied de page */
-footer { text-align: center; padding: 2em; background: #111; color: #FF4D02; }
-
-/* responsive */
-
-/* tablettes / petits écrans */
-@media (max-width: 1024px) {
-  header { flex-direction: column; align-items: flex-start; } /* empile titre + nav */
-  nav ul { flex-direction: column; gap: 1em; width: 100%; }
-  .card { width: 90%; padding: 2em; }
-  .home h1 { font-size: 2.2em; }
-  .home h2 { font-size: 1.5em; }
-  .home h3 { font-size: 1.2em; }
+/* FOOTER */
+footer {
+  text-align: left;
+  padding: 2em;
+  color: #ff4e0280;
 }
 
-/* smartphones */
-@media (max-width: 768px) {
-  header h1 { font-size: 1.3em; margin-bottom: 0.5em; }
-  .card { padding: 1.5em; }
-  .home h1 { font-size: 1.8em; }
-  .home h2 { font-size: 1.2em; }
-  .home h3 { font-size: 1em; }
-  .full-page { padding: 20px 10px; }
-  .cards-container { gap: 100px; } /* réduire gap sur petit écran */
-}
-
-/* très petit écran / portrait */
-@media (max-width: 480px) {
-  nav ul { gap: 0.5em; }
-  .contact { padding: 1.5em; margin: 2em auto; }
-  .home h1 { font-size: 1.5em; }
-  .home h2 { font-size: 1em; }
-  .home h3 { font-size: 0.9em; }
-  .full-page { padding: 10px; }
-  .cards-container { gap: 50px; } /* réduire gap sur mobile */
-}
-
-/* curseur perso */
+/*CURSEUR PERSONNALISÉ*/
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -236,8 +206,20 @@ footer { text-align: center; padding: 2em; background: #111; color: #FF4D02; }
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #FF4D02;
-  pointer-events: none; /* ignore les clics */
-  transform: translate(-50%, -50%); /* centré sur souris */
+  background: linear-gradient(#FF4D02, #3700ff);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
   z-index: 9999;
+}
+
+/* RESPONSIVE*/
+@media (max-width: 768px) {
+  .card, .card-left, .card-right {
+    flex-direction: column;      /* empile texte + image */
+    text-align: center;
+    padding: 1.5em;
+  }
+  .card-text { margin: 0 0 1em 0; }
+  .card-image img { width: 100%; max-width: 300px; margin: 0 auto; }
+  .contact { padding: 1.5em; margin: 2em auto; }
 }
